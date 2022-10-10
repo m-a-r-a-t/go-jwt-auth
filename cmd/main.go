@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	var host string
+	var host = "localhost:8000"
 	for _, v := range os.Args {
 		if v == "--host" {
 			fmt.Println("Введите host: ")
@@ -22,7 +22,7 @@ func main() {
 	if &host == nil {
 		host = "localhost:8000"
 	}
-	log.Println("Server starting on port: 8000")
+	log.Println("Server starting on port: ", host)
 	err := http.ListenAndServe(host, &server.R.Mux)
 	log.Fatal(err)
 }
